@@ -43,7 +43,7 @@ const destroy = (req, res) => {
     .catch(err => res.send(err))
 }
 
-//NOTE: KALAU REQUEST MELALUI 'FORM DATA' UPDATE GAGAL, TAPI KALAU PAKAI  'RAW JSON' UPDATE BERHASIL
+//NOTE: KALAU REQUEST MELALUI FORM DATA UPDATE GAGAL, TAPI KALAU PAKAI 'RAW JSON' UPDATE BERHASIL (kalau boleh minta tolong feedbacknya mengenai ini)
 const update = (req, res) => {
     const { name, price, stock, status } = req.body
     const image = req.file

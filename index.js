@@ -9,10 +9,11 @@ const bodyParser = require('body-parser')
 
 app.use(cors())
 app.use(express.json())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/public', express.static(path.join(__dirname, 'public')))
-app.use( routerProducts)
+// v1 => mongoose || v2 => mongodb (native)
+app.use('/api/v1', routerProducts)
 app.use('/api/v2', routerProductsV2)
 
 //error handling
