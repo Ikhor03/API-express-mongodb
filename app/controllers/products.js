@@ -29,7 +29,7 @@ const store = (req, res) => {
     if (image) {
         const targetRename = path.join(__dirname, '../../public', image.originalname)
         fs.renameSync(image.path, targetRename)
-        url_image = `http://localhost:3000/public/${image.originalname}`
+        url_image = `http://localhost:5000/public/${image.originalname}`
     }
 
     products.create({ name, price, stock, status, url_image })
@@ -46,11 +46,11 @@ const update = (req, res) => {
     if (image) {
         const targetRename = path.join(__dirname, '../../public', image.originalname)
         fs.renameSync(image.path, targetRename)
-        url_image = `http://localhost:3000/public/${image.originalname}`
+        url_image = `http://localhost:5000/public/${image.originalname}`
     }
 
     products.findByIdAndUpdate(req.params.id , { name, price, stock, status, url_image })
-        .then(result => res.send(result))
+        .then(result => res.json(result))
         .catch(err => res.send(err))
 }
 

@@ -28,7 +28,7 @@ const store = (req, res) => {
     if (image) {
         targetRename = path.join(__dirname, '../../uploads', image.originalname)
         fs.renameSync(image.path, targetRename)
-        url_image = `http://localhost:3000/public/${image.originalname}`
+        url_image = `http://localhost:5000/public/${image.originalname}`
     }
 
     collection.insertOne({ name, price, stock, status, url_image })
@@ -53,7 +53,7 @@ const update = (req, res) => {
     if (image) {
         targetRename = path.join(__dirname, '../../uploads', image.originalname)
         fs.renameSync(image.path, targetRename)
-        url_image = `http://localhost:3000/public/${image.originalname}`
+        url_image = `http://localhost:5000/public/${image.originalname}`
     }
 
     collection.updateOne({_id : new ObjectId(req.params.id) }, {$set: {name, price, stock, status, url_image}})
